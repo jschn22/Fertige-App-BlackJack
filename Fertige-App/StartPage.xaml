@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Schoen.BlackJAck.StartPage"
+             Title="StartPage"
+             Background="Green">
+    <VerticalStackLayout>
+
+        <Image Source="start.jpg">
+            
+        </Image>
+            <Button x:Name="btnStartPage" 
+							Text="Play" 
+							WidthRequest="150"
+							Clicked="btnStartPage_Clicked"
+							FontSize="20"
+							BackgroundColor="Black"
+							BorderColor="Gray"
+							BorderWidth="3"
+							TextColor="White"/>
+    </VerticalStackLayout>
+</ContentPage>

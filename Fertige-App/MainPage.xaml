@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Schoen.BlackJAck.MainPage"
+             Title="BlackJack"
+             BackgroundColor="Green">
+
+    <Grid HorizontalOptions="StartAndExpand">
+        
+
+        
+
+        <VerticalStackLayout
+
+            Padding="5"
+            VerticalOptions="Center">
+            
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Guthaben: "
+						   FontAttributes="Bold"
+						   VerticalOptions="Center"
+						   HorizontalOptions="Center" 
+						   TextColor="White"
+						   FontSize="20"/>
+
+                <Entry Text="{Binding GuthabenGes, StringFormat='€{0}'}"
+					   FontAttributes="Bold"
+					   WidthRequest="100" 
+					   IsReadOnly="True" 
+                       TextColor="White"
+                       FontSize="20"/>
+                <Label WidthRequest="20">
+                    
+                </Label>
+                <Button x:Name="btnAdd" 
+							Text="Einzahlen" 
+							WidthRequest="150"
+							Clicked="btnAdd_Clicked"
+							FontSize="20"
+							BackgroundColor="Black"
+							BorderColor="Gray"
+							BorderWidth="3"
+							TextColor="White"/>
+                
+                
+
+
+                
+            </HorizontalStackLayout>
+
+            
+
+
+            <Grid HorizontalOptions="Start"
+						  VerticalOptions="Center">
+
+                <Image x:Name="dealerCard1"
+							   Grid.Row="0"
+							   Source="red2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center" 
+							   VerticalOptions="Center"/>
+                <Image x:Name="dealerCard2"
+							   Grid.Row="0"
+							   TranslationX="25"
+							   Source="hearts_2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center" 
+							   VerticalOptions="Center"/>
+                <Image x:Name="dealerCard3"
+							   Grid.Row="0"
+							   TranslationX="50"
+							   Source="red2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center"
+							   VerticalOptions="Center"/>
+                <Image x:Name="dealerCard4"
+							   Grid.Row="0"
+							   TranslationX="75"
+							   Source="blue2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center" 
+							   VerticalOptions="Center"/>
+                <Image x:Name="dealerCard5"
+							   Grid.Row="0"
+							   TranslationX="100"
+							   Source="red2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center" 
+							   VerticalOptions="Center"/>
+                <Image x:Name="dealerCard6"
+							   Grid.Row="0"
+							   TranslationX="125"
+							   Source="red2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center"
+							   VerticalOptions="Center"
+                       />
+                
+                
+            </Grid>
+            <Label
+                HorizontalOptions="End"
+                x:Name="lblDealerTotal"
+				TextColor="White"
+				Text="{Binding DealerTotal}"
+				VerticalOptions="Center"
+                FontAttributes="Bold"
+                WidthRequest="170"
+        		
+            />
+
+            <Grid HeightRequest="70">
+                <Label x:Name="lblErgebnis"
+				   Text=""
+				   TextColor="Yellow"
+				   FontSize="22"
+				   HorizontalOptions="Start"
+				   VerticalOptions="Start" 
+				   IsVisible="true"
+				   Opacity="100"
+				   />
+            </Grid>
+
+
+
+
+
+            <Grid HorizontalOptions="StartAndExpand"
+						  VerticalOptions="Center">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Image x:Name="playerCard1"
+							   Grid.Row="0"
+							   Source="clubs_7.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center" 
+							   VerticalOptions="Center"/>
+                <Image x:Name="playerCard2"
+							   Grid.Row="0"
+							   TranslationX="25"
+							   Source="diamonds_8.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center" 
+							   VerticalOptions="Center"/>
+                <Image x:Name="playerCard3"
+							   Grid.Row="0"
+							   TranslationX="50"
+							   Source="red2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center"
+							   VerticalOptions="Center"/>
+                <Image x:Name="playerCard4"
+							   Grid.Row="0"
+							   TranslationX="75"
+							   Source="blue2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center" 
+							   VerticalOptions="Center"/>
+                <Image x:Name="playerCard5"
+							   Grid.Row="0"
+							   TranslationX="100"
+							   Source="red2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center" 
+							   VerticalOptions="Center"/>
+                <Image x:Name="playerCard6"
+							   Grid.Row="0"
+							   TranslationX="125"
+							   Source="blue2.png"
+							   WidthRequest="100"
+							   HeightRequest="200"
+							   HorizontalOptions="Center"
+							   VerticalOptions="Center"/>
+                
+            </Grid>
+            <Label
+                HorizontalOptions="End"
+                x:Name="lblPlayerTotal"
+				TextColor="White"
+				Text="{Binding PlayerTotal}"
+				FontAttributes="Bold"
+				VerticalOptions="Center" 
+                WidthRequest="170"
+        		
+            />
+
+            
+
+
+
+            <HorizontalStackLayout
+                HorizontalOptions="Center">
+
+                    
+                    <Button
+                        x:Name="Hit"
+                        Text="Hit"
+                        Clicked="OnHitClicked"
+                        HorizontalOptions="Center" 
+                        Margin="20"
+                        FontSize="20"
+                        BorderColor="Black"
+						BorderWidth="3"/>
+
+					<Button
+							x:Name="Start"
+							Text="Deal"
+							Clicked="OnStartClicked"
+							HorizontalOptions="End"
+							Margin="20"
+							BackgroundColor="DodgerBlue"
+							TextColor="White"
+							BorderColor="Black"
+							BorderWidth="3"
+							FontSize="20"/>
+
+					<Button
+							x:Name="Stand"
+							Text="Stand"
+							Clicked="OnStandClicked"
+							HorizontalOptions="End"
+							Margin="20"
+							FontSize="20"
+							BorderColor="Black"
+							BorderWidth="3"/>
+
+            </HorizontalStackLayout>
+            <HorizontalStackLayout  HorizontalOptions="Center">
+                <Grid HorizontalOptions="Center"
+					  VerticalOptions="Center">
+                    
+                    <ImageButton x:Name="btn10"
+								 Grid.Row="0"
+								 Source="rot.gif"
+								 WidthRequest="100"
+								 HeightRequest="100" 
+								 HorizontalOptions="Start" 
+								 VerticalOptions="Center"
+								 Clicked="btn10_Clicked"/>
+                    
+
+                </Grid>
+                <Grid HorizontalOptions="Center"
+					  VerticalOptions="Center">
+                    
+                    <ImageButton x:Name="btn25"
+								 Grid.Row="0"
+								 Source="blau.gif"
+								 WidthRequest="100"
+								 HeightRequest="100" 
+								 HorizontalOptions="Center" 
+								 VerticalOptions="Center"
+								 Clicked="btn25_Clicked"/>
+                    
+
+                </Grid>
+                <Grid HorizontalOptions="Center"
+					  VerticalOptions="Center">
+                    
+                    <ImageButton x:Name="btn50"
+								 Grid.Row="0"
+								 Source="Orange.gif"
+								 WidthRequest="100"
+								 HeightRequest="100" 
+								 HorizontalOptions="Center" 
+								 VerticalOptions="Center"
+								 Clicked="btn50_Clicked"/>
+                    
+
+                </Grid>
+                <Grid HorizontalOptions="Start"
+					  VerticalOptions="Start">
+                    
+                    <ImageButton x:Name="btn100"
+								 Grid.Row="0"
+								 Source="schwarz.gif"
+								 WidthRequest="100"
+								 HeightRequest="100" 
+								 HorizontalOptions="Center" 
+								 VerticalOptions="Center"
+								 Clicked="btn100_Clicked"/>
+                    
+
+                </Grid>
+                
+                    
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Einsatz: "
+						   FontAttributes="Bold"
+						   VerticalOptions="Center"
+						   HorizontalOptions="Center" 
+						   TextColor="White"
+						   FontSize="20"/>
+
+                <Entry Text="{Binding MyBet, StringFormat='€{0}'}"
+					   FontAttributes="Bold"
+					   WidthRequest="60" 
+					   IsReadOnly="True" 
+                       TextColor="White"
+                       FontSize="20"/>
+
+
+                <Button x:Name="btnClear" 
+							Text="Clear" 
+							WidthRequest="80"
+							Clicked="btnClear_Clicked"
+							FontSize="20"/>
+            </HorizontalStackLayout>
+
+
+
+        </VerticalStackLayout>
+    </Grid>
+    
+
+</ContentPage>
